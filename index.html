@@ -4,8 +4,9 @@
   <meta charset="UTF-8">
   <title>Web Component Table Quiz</title>
 </head>
-<body>
-  <quiz-game><!-- Game doesnt work with duplicate values -->
+<body><!-- Game doesnt work with duplicate values -->
+  <h2>Web Component Quiz Table</h2>
+  <quiz-game><!--To add more rows just add more questions-->
     <div slot="question1"><img src="demo-img/blueBall.png" width="100px" alt=""></div>
     <div slot="answer1"><img src="demo-img/redBall.png" width="100px" alt=""></div> -->
 
@@ -27,6 +28,34 @@
     <div slot="question7">Capital of France:</div>
     <div slot="answer7">Paris</div>
 </quiz-game>
+<h3>HTML Code:</h3>
+<pre>
+  <code>&lt!--To add/remove rows just add/remove questions and answers--&gt
+    &ltquiz-game&gt
+    &ltdiv slot="question1"&gt&ltimg src="demo-img/blueBall.png" width="100px" alt=""&gt&lt/div&gt
+    &ltdiv slot="answer1"&gt&ltimg src="demo-img/redBall.png" width="100px" alt=""&gt&lt/div&gt
+
+    &ltdiv slot="question2"&gt3+1=&lt/div&gt
+    &ltdiv slot="answer2"&gt4&lt/div&gt
+
+    &ltdiv slot="question3"&gt3-1=&lt/div&gt
+    &ltdiv slot="answer3"&gt2&lt/div&gt
+
+    &ltdiv slot="question4"&gtXXII&lt/div&gt
+    &ltdiv slot="answer4"&gt22&lt/div&gt
+
+    &ltdiv slot="question5"&gt&ltimg src="demo-img/car.jpg" width="100px" alt=""&gt&lt/div&gt
+    &ltdiv slot="answer5"&gtCar&lt/div&gt
+
+    &ltdiv slot="question6"&gtBike:&lt/div&gt
+    &ltdiv slot="answer6"&gt&ltimg src="demo-img/bike.jpg" width="100px" alt=""&gt&lt/div&gt
+
+    &ltdiv slot="question7"&gtCapital of France:&lt/div&gt
+    &ltdiv slot="answer7"&gtParis&lt/div&gt
+&lt/quiz-game&gt
+  </code>
+</pre>
+  
   <script src="/tableQuizComponent.js" type="module"></script>
 </body>
 </html>
