@@ -48,9 +48,11 @@ class QuizGame extends HTMLElement {
       }
     }
 
+
     // Used to create questionElements and answerElements arrays from html div elements and shuffle them
     getElementsAndShuffle();
 
+    let correctAnswerCounter = 0;
 
     // Function to check answers and change cells accordingly
     function addEventListenerToDropDown(dropDownElement, correctAnswer, rightSideColumnCells) {
@@ -99,8 +101,36 @@ class QuizGame extends HTMLElement {
             }
           }
           // Remove drop-down and add correct answer to the question cell
+          correctAnswerCounter++; // Incerement correct answer counter on each correct answer guess
           dropDownElement.remove();
           rightSideColumnCells.innerHTML += ' ' + chosenAnswerDiv.innerHTML;
+
+          // Display YOU WIN
+          if (correctAnswerCounter >= questionElements.length) {
+            const winMessage = document.createElement('div');
+            winMessage.textContent = 'YOU WIN';
+            winMessage.style.fontSize = '48px';
+            winMessage.style.textAlign = 'center';
+            winMessage.style.position = 'fixed';
+            winMessage.style.top = '50%';
+            winMessage.style.left = '50%';
+            winMessage.style.transform = 'translate(-50%, -50%)';
+            document.body.appendChild(winMessage);
+          
+            const closeButton = document.createElement('button');
+            closeButton.textContent = 'Close';
+            closeButton.style.fontSize = '24px';
+            closeButton.style.display = 'block';
+            closeButton.style.marginTop = '20px';
+            closeButton.style.marginLeft = 'auto';
+            closeButton.style.marginRight = 'auto';
+            winMessage.appendChild(closeButton);
+          
+            closeButton.addEventListener('click', () => {
+              document.body.removeChild(winMessage);
+            });
+          }
+          
         } else {
           // Change background color to red
           rightSideColumnCells.style.backgroundColor = "#f5c9c4";
